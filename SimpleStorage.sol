@@ -9,7 +9,7 @@ contract SimpleStorage {
     // bool,uint,int,address,bytes,string
 
     //default value is 0
-    uint favoriteNumber = 5;
+    uint favoriteNumber ;
 
     //like dict
     mapping(string => uint) public nametoFavoriteNumber;
@@ -32,7 +32,7 @@ contract SimpleStorage {
     //if gas calling function calls view or pure then gas is used
     //public is like view too !
 
-    function store(uint _favoriteNumber) public {
+    function store(uint _favoriteNumber) public virtual {
         favoriteNumber = _favoriteNumber;
     }
 
@@ -49,12 +49,7 @@ contract SimpleStorage {
         nametoFavoriteNumber[_name]= _favoriteNumber;
     }
 
-
-
-    
-
 }
-
 
 //deploying a contract is just a transaction on the blockchain network
 //we spend gas to call the function on the contract
